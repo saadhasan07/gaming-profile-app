@@ -2,6 +2,35 @@
 
 A comprehensive social gaming platform that enables users to discover, share, and connect through interactive gaming experiences.
 
+## Preview
+
+![Dashboard View](docs/images/dashboard-view.png)
+*Main dashboard with game statistics and recent activities*
+
+<details>
+  <summary>More Screenshots</summary>
+  
+  ### User Profile Page
+  ![Profile Page](docs/images/profile-page.png)
+  *User profile with game achievements and stats*
+  
+  ### Leaderboard View
+  ![Leaderboard](docs/images/leaderboard-view.png)
+  *Global and game-specific leaderboards*
+  
+  ### Real-time Chat Interface
+  ![Chat Interface](docs/images/chat-interface.png)
+  *WebSocket-powered real-time messaging*
+  
+  ### Achievement Showcase
+  ![Achievements](docs/images/achievements-showcase.png)
+  *Animated achievement unlocks with particle effects*
+  
+  ### Theme Customizer
+  ![Theme Customizer](docs/images/theme-customizer.png)
+  *Personalized profile themes with neon color schemes*
+</details>
+
 ## Features
 
 - **User Authentication**
