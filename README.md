@@ -106,7 +106,7 @@ gaming-profile-app/
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/gaming-profile-app.git
+   git clone https://github.com/saadhasan07/gaming-profile-app.git
    cd gaming-profile-app
    ```
 
