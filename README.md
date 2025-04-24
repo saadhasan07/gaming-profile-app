@@ -1,70 +1,272 @@
-# Getting Started with Create React App
+# Gaming Profile App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive social gaming platform that enables users to discover, share, and connect through interactive gaming experiences.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Authentication**
+  - Email/password registration and login
+  - Social authentication (Google, Facebook)
+  - JWT-based authentication system
+  - Password reset functionality
 
-### `npm start`
+- **Profile Management**
+  - Customizable gaming profiles
+  - Profile themes and customization options
+  - Game statistics tracking
+  - Achievement showcase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Social Features**
+  - Friend system (add, remove, pending requests)
+  - Real-time messaging with WebSockets
+  - Online status indicators
+  - Activity feed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Game Integration**
+  - Game catalog browsing
+  - Game details and information
+  - Connect gaming platform accounts (Steam, Xbox, PlayStation, etc.)
+  - Track game stats and achievements
 
-### `npm test`
+- **Leaderboards**
+  - Global and game-specific leaderboards
+  - Filtering and sorting options
+  - Friend comparisons
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Game Event Scheduler**
+  - Create and join gaming events
+  - Event notification system
+  - Calendar integration
 
-### `npm run build`
+- **Real-time Features**
+  - Live notifications
+  - Chat and messaging
+  - Typing indicators
+  - Online presence status
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
+- React.js
+- React Router for navigation
+- CSS with animations and transitions
+- WebSocket for real-time communications
+- React Context API for state management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
+- Node.js with Express
+- MongoDB for data storage
+- WebSocket server for real-time features
+- JWT for authentication
+- Mongoose for MongoDB ODM
 
-### `npm run eject`
+### Third-party Integrations
+- OAuth providers (Google, Facebook)
+- Gaming platform APIs (optional)
+- Cloud storage for media (AWS S3 or similar)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+gaming-profile-app/
+├── client/                 # Frontend React application
+│   ├── public/             # Public assets
+│   └── src/
+│       ├── components/     # Reusable UI components
+│       ├── context/        # React Context providers
+│       ├── hooks/          # Custom React hooks
+│       ├── pages/          # Page components
+│       ├── services/       # API service calls
+│       ├── utils/          # Utility functions
+│       └── App.js          # Main App component
+├── server/                 # Backend Node.js/Express
+│   ├── config/             # Configuration files
+│   ├── controllers/        # Route controllers
+│   ├── middleware/         # Express middleware
+│   ├── models/             # Mongoose models
+│   ├── routes/             # API routes
+│   ├── services/           # Business logic
+│   ├── utils/              # Utility functions
+│   ├── websocket.js        # WebSocket server implementation
+│   └── server.js           # Main server file
+├── .env.example            # Example environment variables
+├── .gitignore              # Git ignore file
+├── package.json            # Project dependencies
+└── README.md               # Project documentation
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Setup Instructions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (local or Atlas)
+- npm or yarn
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/gaming-profile-app.git
+   cd gaming-profile-app
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies:
+   ```
+   # Install server dependencies
+   npm install
+   
+   # Install client dependencies
+   cd client
+   npm install
+   ```
 
-### Code Splitting
+3. Environment setup:
+   - Copy `.env.example` to `.env`
+   - Update environment variables with your values
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Start MongoDB:
+   - If using local MongoDB: `mongod`
+   - If using Atlas: Update the connection string in your `.env` file
 
-### Analyzing the Bundle Size
+5. Start the development servers:
+   ```
+   # In the root directory
+   npm run dev
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## WebSocket Integration
 
-### Making a Progressive Web App
+The application uses WebSockets for real-time features such as chat, notifications, and user presence.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Server-side Implementation
+The WebSocket server is implemented in `server/websocket.js` and initialized in `server/server.js`. It handles:
+- Authentication via JWT
+- Message sending and receiving
+- Online status management
+- Typing indicators
+- Event notifications
 
-### Advanced Configuration
+### Client-side Integration
+The WebSocket client is implemented in `client/src/services/websocketService.js`. It provides:
+- Connection management (including reconnection)
+- Message handling
+- Event-based communication
+- Presence updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Event Types
+- `auth`: Authenticate WebSocket connection
+- `message`: Send/receive direct messages
+- `typing`: Typing indicators
+- `presence`: User online status updates
+- `join_event`: Join game event rooms
+- `new_message`: Receive new messages
+- `friend_requests`: Friend request notifications
+- `upcoming_events`: Event notifications
+- `achievement_unlocked`: Achievement notifications
 
-### Deployment
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login a user
+- `POST /api/auth/logout` - Logout a user
+- `GET /api/auth/me` - Get current user
+- `POST /api/auth/forgot-password` - Request password reset
+- `POST /api/auth/reset-password` - Reset password
+- `GET /api/auth/google` - Google OAuth login
+- `GET /api/auth/facebook` - Facebook OAuth login
 
-### `npm run build` fails to minify
+### Users
+- `GET /api/users` - Get all users (admin only)
+- `GET /api/users/:id` - Get user by ID
+- `GET /api/users/me` - Get current user
+- `PUT /api/users/me` - Update current user
+- `PUT /api/users/me/password` - Update password
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Friends
+- `GET /api/friends` - Get friends list
+- `POST /api/friends/request/:userId` - Send friend request
+- `POST /api/friends/accept/:userId` - Accept friend request
+- `POST /api/friends/reject/:userId` - Reject friend request
+- `DELETE /api/friends/:userId` - Remove friend
+
+### Messages
+- `GET /api/messages` - Get all conversations
+- `GET /api/messages/conversation/:userId` - Get messages with user
+- `POST /api/messages/:userId` - Send message to user
+- `PATCH /api/messages/:messageId/read` - Mark message as read
+
+### Games
+- `GET /api/games` - Get all games
+- `GET /api/games/:id` - Get game by ID
+- `GET /api/games/popular` - Get popular games
+- `GET /api/games/search?q=query` - Search games
+
+### Game Stats
+- `GET /api/gamestats/user/:userId` - Get user game stats
+- `GET /api/gamestats/game/:gameId` - Get game stats for a game
+- `POST /api/gamestats` - Create/update game stats
+
+### Achievements
+- `GET /api/achievements/user/:userId` - Get user achievements
+- `GET /api/achievements/game/:gameId` - Get achievements for a game
+- `POST /api/achievements/unlock` - Unlock achievement
+
+### Events
+- `GET /api/events` - Get all events
+- `GET /api/events/:id` - Get event by ID
+- `POST /api/events` - Create new event
+- `PUT /api/events/:id` - Update event
+- `DELETE /api/events/:id` - Delete event
+- `POST /api/events/:id/join` - Join event
+- `POST /api/events/:id/leave` - Leave event
+
+## UI Components
+
+The application includes several reusable UI components:
+
+- **AnimatedButton**: Button with hover and click animations, neon glow effect, and optional icon
+- **AnimatedCard**: Card with hover animations, 3D tilt effect, and optional glow
+- **AnimatedLoader**: Loading indicators with various styles and animations
+- **NotificationPopup**: Animated notification popups for various events
+- **ChatInterface**: Real-time chat interface with typing indicators
+- **UserPresence**: Online status indicators with animations
+- **AchievementUnlocked**: Achievement notification with particle effects
+
+## Deployment
+
+### Prerequisites
+- MongoDB database (production)
+- Node.js hosting (Heroku, AWS, etc.)
+
+### Deployment Steps
+1. Set up production MongoDB database
+2. Configure environment variables for production
+3. Build frontend assets:
+   ```
+   cd client
+   npm run build
+   ```
+4. Deploy to your hosting provider of choice
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Socket.IO](https://socket.io/) (Alternative to native WebSockets)
+- [JWT](https://jwt.io/)

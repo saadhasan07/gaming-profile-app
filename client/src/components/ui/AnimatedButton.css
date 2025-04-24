@@ -1,0 +1,288 @@
+.animated-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateZ(0);
+}
+
+.animated-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background-color: rgba(30, 32, 48, 0.8);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.button-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.button-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.button-hover-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Button Sizes */
+.animated-button.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.animated-button.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.animated-button.large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.animated-button.full-width {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Button Colors */
+.animated-button.primary::before {
+  background-color: rgba(30, 32, 48, 0.8);
+}
+
+.animated-button.primary .button-border {
+  border-color: #6C5CE7;
+}
+
+.animated-button.primary .button-glow {
+  box-shadow: 0 0 15px 5px rgba(108, 92, 231, 0.5);
+}
+
+.animated-button.primary {
+  color: #fff;
+  background: linear-gradient(135deg, #6C5CE7 0%, #5a4dd4 100%);
+}
+
+.animated-button.secondary::before {
+  background-color: rgba(30, 32, 48, 0.8);
+}
+
+.animated-button.secondary .button-border {
+  border-color: #00F260;
+}
+
+.animated-button.secondary .button-glow {
+  box-shadow: 0 0 15px 5px rgba(0, 242, 96, 0.5);
+}
+
+.animated-button.secondary {
+  color: #fff;
+  background: linear-gradient(135deg, #00F260 0%, #0575E6 100%);
+}
+
+.animated-button.danger::before {
+  background-color: rgba(30, 32, 48, 0.8);
+}
+
+.animated-button.danger .button-border {
+  border-color: #E74C3C;
+}
+
+.animated-button.danger .button-glow {
+  box-shadow: 0 0 15px 5px rgba(231, 76, 60, 0.5);
+}
+
+.animated-button.danger {
+  color: #fff;
+  background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+}
+
+.animated-button.ghost {
+  background: transparent;
+}
+
+.animated-button.ghost::before {
+  background-color: transparent;
+}
+
+.animated-button.ghost.primary {
+  color: #6C5CE7;
+  border: 2px solid #6C5CE7;
+}
+
+.animated-button.ghost.secondary {
+  color: #00F260;
+  border: 2px solid #00F260;
+}
+
+.animated-button.ghost.danger {
+  color: #E74C3C;
+  border: 2px solid #E74C3C;
+}
+
+/* Button States */
+.animated-button:hover {
+  transform: perspective(1000px) translateZ(10px) scale(1.05);
+}
+
+.animated-button:hover .button-glow {
+  opacity: 1;
+}
+
+.animated-button:hover .button-border {
+  opacity: 1;
+}
+
+.animated-button:hover .button-hover-effect {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 1;
+}
+
+.animated-button:hover .button-icon {
+  transform: scale(1.2);
+}
+
+.animated-button:active, 
+.animated-button.pressed {
+  transform: perspective(1000px) translateZ(0) scale(0.95);
+}
+
+.animated-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.animated-button.disabled::before,
+.animated-button.disabled .button-border,
+.animated-button.disabled .button-glow,
+.animated-button.disabled .button-hover-effect {
+  display: none;
+}
+
+/* Animation Keyframes */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
+  }
+}
+
+/* Hover Effect Animation */
+.animated-button:hover.primary {
+  background-size: 200% 200%;
+  background: linear-gradient(135deg, #6C5CE7, #5a4dd4, #6C5CE7);
+  animation: gradientShift 3s ease infinite;
+}
+
+.animated-button:hover.secondary {
+  background-size: 200% 200%;
+  background: linear-gradient(135deg, #00F260, #0575E6, #00F260);
+  animation: gradientShift 3s ease infinite;
+}
+
+.animated-button:hover.danger {
+  background-size: 200% 200%;
+  background: linear-gradient(135deg, #E74C3C, #C0392B, #E74C3C);
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Ghost Button Hover Effect */
+.animated-button.ghost:hover.primary {
+  background-color: rgba(108, 92, 231, 0.1);
+}
+
+.animated-button.ghost:hover.secondary {
+  background-color: rgba(0, 242, 96, 0.1);
+}
+
+.animated-button.ghost:hover.danger {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .animated-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}

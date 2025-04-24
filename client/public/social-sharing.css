@@ -1,0 +1,377 @@
+/* Social Sharing Styles */
+
+.share-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.share-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.share-container {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.share-overlay.active .share-container {
+  transform: translateY(0);
+}
+
+.share-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.share-close:hover {
+  color: var(--primary-color);
+}
+
+.share-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.share-header h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.share-header p {
+  color: var(--text-secondary);
+}
+
+.achievement-preview {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(var(--primary-rgb), 0.3), transparent 70%);
+  pointer-events: none;
+}
+
+.achievement-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: radial-gradient(circle, #444, #222);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.achievement-details {
+  flex: 1;
+}
+
+.achievement-details h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.achievement-details p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.achievement-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.achievement-rarity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rarity-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.rarity-common {
+  background-color: #a0a0a0;
+}
+
+.rarity-uncommon {
+  background-color: #4fc3f7;
+}
+
+.rarity-rare {
+  background-color: #7e57c2;
+}
+
+.rarity-epic {
+  background-color: #ff9800;
+}
+
+.rarity-legendary {
+  background-color: #ff5722;
+}
+
+.share-message {
+  margin-bottom: 1.5rem;
+}
+
+.share-message label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.share-message textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-family: inherit;
+  resize: none;
+  height: 100px;
+}
+
+.share-message textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.share-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.platform-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.platform-button.twitter {
+  background-color: #1DA1F2;
+}
+
+.platform-button.facebook {
+  background-color: #4267B2;
+}
+
+.platform-button.discord {
+  background-color: #5865F2;
+}
+
+.platform-button.reddit {
+  background-color: #FF4500;
+}
+
+.platform-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.share-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.share-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.share-option label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.share-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.share-actions button {
+  padding: 0.8rem 1.5rem;
+}
+
+.share-link-container {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: none;
+}
+
+.share-link-container.active {
+  display: block;
+}
+
+.share-link-container p {
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.share-link-field {
+  position: relative;
+}
+
+.share-link-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  padding-right: 100px;
+  border-radius: var(--border-radius);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+.share-link-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.copy-link-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-link-button:hover {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+/* Share button styles for achievement cards */
+.share-achievement-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 5;
+}
+
+.share-achievement-button:hover {
+  background-color: var(--primary-color);
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Animation for copy success */
+@keyframes copySuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.copy-success {
+  animation: copySuccess 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .share-platforms {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .share-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Gaming Profile App - Track your gaming stats and achievements"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="deployment-visualizer.css" />
+    <link rel="stylesheet" href="modal.css" />
+    <title>Gaming Profile App</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="leaderboard.html">Leaderboards</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <button class="btn btn-outline" id="login-button">Login</button>
+            <button class="btn btn-primary" id="signup-button">Sign Up</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Level Up Your Gaming Experience</h1>
+        <p>Track your stats, showcase your achievements, and compete with gamers worldwide on a unified platform designed for serious players.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary pulse" id="get-started-btn">Get Started</button>
+          <button class="btn btn-outline" id="explore-btn">Explore Features</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">Gaming Reimagined</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Cross-Platform Tracking</h3>
+            <p>Connect your gaming accounts from PC, console, and mobile to see all your stats in one place - automatically updated after every session.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Achievement Showcase</h3>
+            <p>Display your rarest achievements and biggest gaming moments on your customizable profile for everyone to see.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Global Leaderboards</h3>
+            <p>Compete on game-specific leaderboards and see how you stack up against players worldwide across multiple metrics.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Game Performance Analysis</h3>
+            <p>Get detailed insights into your gaming performance with advanced analytics, charts, and improvement suggestions.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Connect With Friends</h3>
+            <p>Find your friends across different platforms and games, challenge them, and track your friendly competitions.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Social Login</h3>
+            <p>Quick and secure login with your Google or Facebook account - no need to remember another password or create a new account from scratch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="deployment-visualizer" id="deployment-visualizer">
+      <div class="container">
+        <h2 class="section-title">Deployment Pipeline Visualizer</h2>
+        <p class="section-description">Watch how code changes flow through a modern deployment pipeline from commit to production.</p>
+        
+        <div class="pipeline-controls">
+          <button id="start-deployment" class="btn btn-primary">Start Deployment</button>
+          <button id="reset-deployment" class="btn btn-outline" disabled>Reset</button>
+          <div class="pipeline-speed">
+            <span>Speed:</span>
+            <input type="range" id="pipeline-speed" min="0.5" max="2" step="0.1" value="1">
+            <span id="speed-value">1x</span>
+          </div>
+        </div>
+        
+        <div class="pipeline-container">
+          <div class="pipeline-stage" data-stage="commit">
+            <div class="stage-icon">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <div class="stage-content">
+              <h3>Commit</h3>
+              <p class="stage-description">Developer pushes code changes</p>
+              <div class="stage-details">
+                <code class="code-block">
+                  <span class="code-green">+ const newFeature = () => {</span>
+                  <span class="code-green">+   console.log('New feature added!');</span>
+                  <span class="code-green">+ };</span>
+                  <span class="code-gray">  </span>
+                  <span class="code-red">- const oldFunction = function() {</span>
+                  <span class="code-red">-   console.log('Old functionality');</span>
+                  <span class="code-red">- };</span>
+                </code>
+                <div class="stage-status">
+                  <span class="status-indicator"></span>
+                  <span class="status-text">Waiting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pipeline-connector">
+            <div class="connector-line"></div>
+            <div class="connector-dot dot-1"></div>
+            <div class="connector-dot dot-2"></div>
+            <div class="connector-dot dot-3"></div>
+          </div>
+          
+          <div class="pipeline-stage" data-stage="build">
+            <div class="stage-icon">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <div class="stage-content">
+              <h3>Build</h3>
+              <p class="stage-description">Code is compiled and built</p>
+              <div class="stage-details">
+                <div class="terminal">
+                  <div class="terminal-header">
+                    <span class="terminal-title">Build Process</span>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="terminal-line">$ npm install</div>
+                    <div class="terminal-line">Installing dependencies...</div>
+                    <div class="terminal-line">$ npm run build</div>
+                    <div class="terminal-line">Building application...</div>
+                    <div class="terminal-line success hidden">Build successful! ✅</div>
+                  </div>
+                </div>
+                <div class="stage-status">
+                  <span class="status-indicator"></span>
+                  <span class="status-text">Waiting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pipeline-connector">
+            <div class="connector-line"></div>
+            <div class="connector-dot dot-1"></div>
+            <div class="connector-dot dot-2"></div>
+            <div class="connector-dot dot-3"></div>
+          </div>
+          
+          <div class="pipeline-stage" data-stage="test">
+            <div class="stage-icon">
+              <i class="fas fa-vial"></i>
+            </div>
+            <div class="stage-content">
+              <h3>Test</h3>
+              <p class="stage-description">Automated tests are run</p>
+              <div class="stage-details">
+                <div class="test-results">
+                  <div class="test-suite">
+                    <div class="test-suite-header">
+                      <span class="test-suite-name">User Authentication Tests</span>
+                      <span class="test-suite-count">0/3</span>
+                    </div>
+                    <div class="test-case">
+                      <span class="test-icon">⏱️</span>
+                      <span class="test-name">Should register a new user</span>
+                    </div>
+                    <div class="test-case">
+                      <span class="test-icon">⏱️</span>
+                      <span class="test-name">Should login a registered user</span>
+                    </div>
+                    <div class="test-case">
+                      <span class="test-icon">⏱️</span>
+                      <span class="test-name">Should reject invalid credentials</span>
+                    </div>
+                  </div>
+                  <div class="test-suite">
+                    <div class="test-suite-header">
+                      <span class="test-suite-name">Game Stats API Tests</span>
+                      <span class="test-suite-count">0/2</span>
+                    </div>
+                    <div class="test-case">
+                      <span class="test-icon">⏱️</span>
+                      <span class="test-name">Should save game stats</span>
+                    </div>
+                    <div class="test-case">
+                      <span class="test-icon">⏱️</span>
+                      <span class="test-name">Should retrieve leaderboard</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stage-status">
+                  <span class="status-indicator"></span>
+                  <span class="status-text">Waiting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pipeline-connector">
+            <div class="connector-line"></div>
+            <div class="connector-dot dot-1"></div>
+            <div class="connector-dot dot-2"></div>
+            <div class="connector-dot dot-3"></div>
+          </div>
+          
+          <div class="pipeline-stage" data-stage="deploy">
+            <div class="stage-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="stage-content">
+              <h3>Deploy</h3>
+              <p class="stage-description">Application is deployed to servers</p>
+              <div class="stage-details">
+                <div class="deployment-servers">
+                  <div class="server" data-server="staging">
+                    <div class="server-icon">
+                      <i class="fas fa-server"></i>
+                    </div>
+                    <div class="server-info">
+                      <h4>Staging</h4>
+                      <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                      </div>
+                      <span class="server-status">Waiting</span>
+                    </div>
+                  </div>
+                  <div class="server" data-server="production">
+                    <div class="server-icon">
+                      <i class="fas fa-server"></i>
+                    </div>
+                    <div class="server-info">
+                      <h4>Production</h4>
+                      <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                      </div>
+                      <span class="server-status">Waiting</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stage-status">
+                  <span class="status-indicator"></span>
+                  <span class="status-text">Waiting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pipeline-connector">
+            <div class="connector-line"></div>
+            <div class="connector-dot dot-1"></div>
+            <div class="connector-dot dot-2"></div>
+            <div class="connector-dot dot-3"></div>
+          </div>
+          
+          <div class="pipeline-stage" data-stage="monitor">
+            <div class="stage-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="stage-content">
+              <h3>Monitor</h3>
+              <p class="stage-description">Application performance is monitored</p>
+              <div class="stage-details">
+                <div class="monitoring-dashboard">
+                  <div class="metric">
+                    <div class="metric-header">
+                      <span class="metric-name">Response Time</span>
+                      <span class="metric-value">-- ms</span>
+                    </div>
+                    <div class="metric-chart">
+                      <canvas class="line-chart" id="response-time-chart"></canvas>
+                    </div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-header">
+                      <span class="metric-name">Error Rate</span>
+                      <span class="metric-value">--%</span>
+                    </div>
+                    <div class="metric-chart">
+                      <canvas class="line-chart" id="error-rate-chart"></canvas>
+                    </div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-header">
+                      <span class="metric-name">User Activity</span>
+                      <span class="metric-value">-- users</span>
+                    </div>
+                    <div class="metric-chart">
+                      <canvas class="line-chart" id="user-activity-chart"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="stage-status">
+                  <span class="status-indicator"></span>
+                  <span class="status-text">Waiting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="deployment-info">
+          <div class="deployment-time">
+            <i class="far fa-clock"></i>
+            <span id="deployment-time-elapsed">00:00</span>
+          </div>
+          <div class="deployment-status">
+            <span id="deployment-status-text">Ready to deploy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+          </div>
+          <p class="copyright">© 2025 GameVault. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Simple Modal Structure -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div id="modal-container" class="modal-container">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <div id="modal-content">
+          <!-- Login Form -->
+          <div id="login-form-container" class="form-container active">
+            <h2>Log In</h2>
+            <form id="login-form">
+              <div class="form-group">
+                <label for="login-email">Email or Username</label>
+                <input type="text" id="login-email" required>
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+              </div>
+              <div class="form-options">
+                <div class="remember-me">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+              </div>
+              <button type="submit" class="form-button">Login</button>
+              
+              <div class="form-divider">
+                <span>OR</span>
+              </div>
+              
+              <div class="social-buttons">
+                <button type="button" id="google-login" class="social-button google">
+                  <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button type="button" id="facebook-login" class="social-button facebook">
+                  <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+              </div>
+              
+              <div class="switch-form">
+                <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+              </div>
+            </form>
+          </div>
+          
+          <!-- Register Form -->
+          <div id="register-form-container" class="form-container">
+            <h2>Create Account</h2>
+            <form id="register-form">
+              <div class="form-group">
+                <label for="register-name">Full Name</label>
+                <input type="text" id="register-name" required>
+              </div>
+              <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" required>
+              </div>
+              <div class="form-group">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" required>
+              </div>
+              <div class="form-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" required>
+              </div>
+              <div class="form-group">
+                <label for="register-confirm">Confirm Password</label>
+                <input type="password" id="register-confirm" required>
+              </div>
+              <div class="terms">
+                <input type="checkbox" id="terms-check" required>
+                <label for="terms-check">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+              </div>
+              <button type="submit" class="form-button">Register</button>
+              
+              <div class="form-divider">
+                <span>OR</span>
+              </div>
+              
+              <div class="social-buttons">
+                <button type="button" id="google-register" class="social-button google">
+                  <i class="fab fa-google"></i> Sign up with Google
+                </button>
+                <button type="button" id="facebook-register" class="social-button facebook">
+                  <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                </button>
+              </div>
+              
+              <div class="switch-form">
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+              </div>
+            </form>
+          </div>
+          
+          <!-- Success Message -->
+          <div id="success-container" class="form-container">
+            <div class="success-content">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h2>Welcome aboard!</h2>
+              <p>You've successfully signed in with <span id="auth-method">Email</span></p>
+              <button id="continue-button" class="form-button">Continue to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="deployment-visualizer.js"></script>
+    <script src="social-auth.js"></script>
+  </body>
+</html>

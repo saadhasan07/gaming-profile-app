@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Gaming Profile App - Track your gaming stats and achievements"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="social-sharing.css" />
+    <title>Dashboard | GameVault</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leaderboard.html">Leaderboards</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+          <div class="user-menu">
+            <div class="user-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-info">
+                <span class="username">Player123</span>
+                <span class="level">Level 42</span>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="dashboard.html" class="active"><i class="fas fa-columns"></i> Dashboard</a></li>
+                <li><a href="profile.html"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="dashboard-container">
+      <div class="container">
+        <div class="dashboard-header">
+          <h1>Dashboard</h1>
+          <div class="dashboard-actions">
+            <div class="refresh-button">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </div>
+            <div class="date-range">
+              <i class="far fa-calendar-alt"></i>
+              <span>Last 30 days</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Games Played</h3>
+              <p class="stat-value">127</p>
+              <p class="stat-change positive">+12% <span>vs. last month</span></p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Achievements</h3>
+              <p class="stat-value">45</p>
+              <p class="stat-change positive">+8% <span>vs. last month</span></p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Playtime</h3>
+              <p class="stat-value">87h 23m</p>
+              <p class="stat-change positive">+5% <span>vs. last month</span></p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Friends</h3>
+              <p class="stat-value">34</p>
+              <p class="stat-change negative">-2% <span>vs. last month</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-content">
+          <div class="dashboard-section game-activity">
+            <div class="section-header">
+              <h2>Recent Game Activity</h2>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="game-list">
+              <div class="game-item">
+                <div class="game-img">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <div class="game-info">
+                  <h3>Rocket League</h3>
+                  <p>Last played 2 hours ago</p>
+                </div>
+                <div class="game-stats">
+                  <div class="playtime">
+                    <i class="fas fa-clock"></i> 12h 34m
+                  </div>
+                  <div class="achievements">
+                    <i class="fas fa-trophy"></i> 8/24
+                  </div>
+                </div>
+              </div>
+              
+              <div class="game-item">
+                <div class="game-img">
+                  <i class="fas fa-ghost"></i>
+                </div>
+                <div class="game-info">
+                  <h3>Call of Duty: Warzone</h3>
+                  <p>Last played yesterday</p>
+                </div>
+                <div class="game-stats">
+                  <div class="playtime">
+                    <i class="fas fa-clock"></i> 26h 12m
+                  </div>
+                  <div class="achievements">
+                    <i class="fas fa-trophy"></i> 15/42
+                  </div>
+                </div>
+              </div>
+              
+              <div class="game-item">
+                <div class="game-img">
+                  <i class="fas fa-chess-knight"></i>
+                </div>
+                <div class="game-info">
+                  <h3>League of Legends</h3>
+                  <p>Last played 3 days ago</p>
+                </div>
+                <div class="game-stats">
+                  <div class="playtime">
+                    <i class="fas fa-clock"></i> 47h 51m
+                  </div>
+                  <div class="achievements">
+                    <i class="fas fa-trophy"></i> 22/36
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-section achievement-showcase">
+            <div class="section-header">
+              <h2>Recent Achievements</h2>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="achievements-grid">
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <div class="achievement-info">
+                  <h3>Demolition Expert</h3>
+                  <p>Rocket League</p>
+                  <div class="achievement-rarity">
+                    <div class="rarity-indicator rare"></div>
+                    Rare (12% of players)
+                  </div>
+                </div>
+                <div class="achievement-date">
+                  <i class="far fa-calendar-check"></i> Today
+                </div>
+              </div>
+              
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="achievement-info">
+                  <h3>Sharpshooter</h3>
+                  <p>Call of Duty: Warzone</p>
+                  <div class="achievement-rarity">
+                    <div class="rarity-indicator uncommon"></div>
+                    Uncommon (25% of players)
+                  </div>
+                </div>
+                <div class="achievement-date">
+                  <i class="far fa-calendar-check"></i> Yesterday
+                </div>
+              </div>
+              
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <div class="achievement-info">
+                  <h3>Victory Royale</h3>
+                  <p>Fortnite</p>
+                  <div class="achievement-rarity">
+                    <div class="rarity-indicator legendary"></div>
+                    Legendary (5% of players)
+                  </div>
+                </div>
+                <div class="achievement-date">
+                  <i class="far fa-calendar-check"></i> 3 days ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-row">
+          <div class="dashboard-section game-stats">
+            <div class="section-header">
+              <h2>Gaming Performance</h2>
+              <div class="section-filters">
+                <select id="game-filter">
+                  <option>All Games</option>
+                  <option>Rocket League</option>
+                  <option>Call of Duty: Warzone</option>
+                  <option>League of Legends</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="stats-chart">
+              <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-section friends-activity">
+            <div class="section-header">
+              <h2>Friends Activity</h2>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="friends-list">
+              <div class="friend-item">
+                <div class="friend-avatar">
+                  <i class="fas fa-user"></i>
+                  <div class="online-status online"></div>
+                </div>
+                <div class="friend-info">
+                  <h3>GamerX</h3>
+                  <p>Playing Rocket League</p>
+                </div>
+                <div class="friend-actions">
+                  <button class="btn btn-sm btn-outline">Join</button>
+                </div>
+              </div>
+              
+              <div class="friend-item">
+                <div class="friend-avatar">
+                  <i class="fas fa-user"></i>
+                  <div class="online-status online"></div>
+                </div>
+                <div class="friend-info">
+                  <h3>ProGamer99</h3>
+                  <p>Playing Call of Duty: Warzone</p>
+                </div>
+                <div class="friend-actions">
+                  <button class="btn btn-sm btn-outline">Join</button>
+                </div>
+              </div>
+              
+              <div class="friend-item">
+                <div class="friend-avatar">
+                  <i class="fas fa-user"></i>
+                  <div class="online-status offline"></div>
+                </div>
+                <div class="friend-info">
+                  <h3>NightHawk</h3>
+                  <p>Last online 2 hours ago</p>
+                </div>
+                <div class="friend-actions">
+                  <button class="btn btn-sm btn-outline">Message</button>
+                </div>
+              </div>
+              
+              <div class="friend-item">
+                <div class="friend-avatar">
+                  <i class="fas fa-user"></i>
+                  <div class="online-status away"></div>
+                </div>
+                <div class="friend-info">
+                  <h3>LegendKiller</h3>
+                  <p>Away - Playing Fortnite</p>
+                </div>
+                <div class="friend-actions">
+                  <button class="btn btn-sm btn-outline">Join</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+          </div>
+          <p class="copyright">© 2025 GameVault. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="social-sharing.js"></script>
+  </body>
+</html>

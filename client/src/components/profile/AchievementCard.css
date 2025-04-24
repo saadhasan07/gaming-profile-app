@@ -1,0 +1,183 @@
+.achievement-card {
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.9), rgba(45, 50, 90, 0.7));
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.achievement-content {
+  flex: 1;
+}
+
+.achievement-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-name {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.rarity-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rarity-percentage {
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+.achievement-description {
+  margin: 0 0 0.75rem 0;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.achievement-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.unlocked-date {
+  color: #6C5CE7;
+}
+
+.share-button {
+  background: none;
+  border: 1px solid #6C5CE7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  color: #6C5CE7;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.share-button svg {
+  margin-right: 0.3rem;
+}
+
+.share-button:hover:not(:disabled) {
+  background-color: rgba(108, 92, 231, 0.1);
+  color: #7d71e3;
+}
+
+.share-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.share-button.shared {
+  border-color: #00F260;
+  color: #00F260;
+}
+
+.achievement-border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Rarity color classes */
+.rarity-common {
+  color: #8C8C8C;
+}
+
+.rarity-uncommon {
+  color: #2ECC71;
+}
+
+.rarity-rare {
+  color: #3498DB;
+}
+
+.rarity-epic {
+  color: #9B59B6;
+}
+
+.rarity-legendary {
+  color: #F1C40F;
+}
+
+/* Animation for newly unlocked achievements */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+  }
+}
+
+.achievement-card.new {
+  animation: glow 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .achievement-name-container {
+    flex-direction: column;
+  }
+  
+  .rarity-badge {
+    align-self: flex-start;
+    margin-top: 0.25rem;
+  }
+  
+  .achievement-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .share-button {
+    margin-top: 0.5rem;
+  }
+}

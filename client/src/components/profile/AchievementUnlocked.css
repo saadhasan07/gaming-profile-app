@@ -1,0 +1,299 @@
+.achievement-unlocked-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.95), rgba(45, 50, 90, 0.95));
+  border-radius: 12px;
+  width: 400px;
+  max-width: calc(100% - 40px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(241, 196, 15, 0.5);
+  overflow: hidden;
+  opacity: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(241, 196, 15, 0.7);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.achievement-unlocked-container.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  animation: achievementPulse 2s infinite alternate;
+}
+
+@keyframes achievementPulse {
+  0% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(241, 196, 15, 0.5);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(241, 196, 15, 0.8);
+  }
+}
+
+.achievement-unlocked-container.closing {
+  opacity: 0;
+  transform: translate(-50%, -80%) scale(0.8);
+}
+
+.achievement-unlocked-content {
+  position: relative;
+  padding: 20px;
+  z-index: 2;
+}
+
+.achievement-unlocked-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.achievement-unlocked-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F1C40F;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: titleGlow 1.5s infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.8), 0 0 15px rgba(241, 196, 15, 0.5);
+  }
+}
+
+.achievement-unlocked-close {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 24px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.achievement-unlocked-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.achievement-unlocked-details {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.achievement-unlocked-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #F1C40F;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.achievement-unlocked-image-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  background-color: rgba(20, 22, 38, 0.8);
+  border: 2px solid #F1C40F;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.achievement-unlocked-info {
+  flex: 1;
+}
+
+.achievement-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 5px 0;
+}
+
+.achievement-game {
+  font-size: 12px;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+}
+
+.achievement-rarity {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.achievement-rarity.common {
+  background-color: #8C8C8C;
+  color: white;
+}
+
+.achievement-rarity.uncommon {
+  background-color: #2ECC71;
+  color: white;
+}
+
+.achievement-rarity.rare {
+  background-color: #3498DB;
+  color: white;
+}
+
+.achievement-rarity.epic {
+  background-color: #9B59B6;
+  color: white;
+}
+
+.achievement-rarity.legendary {
+  background-color: #F1C40F;
+  color: black;
+  animation: legendaryPulse 1.5s infinite alternate;
+}
+
+@keyframes legendaryPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px 3px rgba(241, 196, 15, 0.7);
+  }
+}
+
+.achievement-description {
+  font-size: 12px;
+  color: #d1d1d1;
+  line-height: 1.4;
+}
+
+.achievement-unlocked-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.achievement-unlocked-share,
+.achievement-unlocked-view {
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.achievement-unlocked-share {
+  background-color: rgba(30, 32, 48, 0.8);
+  color: #F1C40F;
+  border: 1px solid #F1C40F;
+  flex: 1;
+}
+
+.achievement-unlocked-view {
+  background: linear-gradient(135deg, #F1C40F, #F39C12);
+  color: #1e2030;
+  flex: 1;
+}
+
+.achievement-unlocked-share:hover,
+.achievement-unlocked-view:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-unlocked-share:active,
+.achievement-unlocked-view:active {
+  transform: translateY(0);
+}
+
+/* Particle effects */
+.achievement-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+/* Special effects for legendary achievements */
+.achievement-unlocked-container.legendary {
+  border-color: rgba(241, 196, 15, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(241, 196, 15, 0.8);
+}
+
+.achievement-unlocked-container.legendary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: legendaryShimmer 3s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes legendaryShimmer {
+  0% {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .achievement-unlocked-container {
+    width: calc(100% - 40px);
+  }
+  
+  .achievement-unlocked-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .achievement-unlocked-image,
+  .achievement-unlocked-image-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+}

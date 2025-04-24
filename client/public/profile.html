@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Gaming Profile App - Track your gaming stats and achievements"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="social-sharing.css" />
+    <title>Edit Profile | GameVault</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leaderboard.html">Leaderboards</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+          <div class="user-menu">
+            <div class="user-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-info">
+                <span class="username">Player123</span>
+                <span class="level">Level 42</span>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="dashboard.html"><i class="fas fa-columns"></i> Dashboard</a></li>
+                <li><a href="profile.html" class="active"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="profile-container">
+      <div class="container">
+        <div class="profile-header">
+          <h1>Edit Profile</h1>
+        </div>
+        
+        <div class="profile-content">
+          <div class="profile-sidebar">
+            <div class="profile-navigation">
+              <ul class="nav-list">
+                <li class="nav-item active">
+                  <a href="#personal-info">
+                    <i class="fas fa-user"></i>
+                    <span>Personal Information</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#account-settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Account Settings</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#gaming-profiles">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming Profiles</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#achievements">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#privacy-settings">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Privacy Settings</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#notification-settings">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="profile-stats">
+              <div class="profile-status">
+                <div class="status-icon">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="status-details">
+                  <h3>Premium Member</h3>
+                  <p>Valid until April 30, 2026</p>
+                </div>
+              </div>
+              
+              <div class="status-progress">
+                <div class="progress-label">
+                  <span>Profile Completion</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-value" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-sections">
+            <section id="personal-info" class="profile-section active">
+              <h2 class="section-title">Personal Information</h2>
+              
+              <div class="profile-avatar-section">
+                <div class="avatar-preview">
+                  <div class="avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="avatar-controls">
+                  <h3>Profile Picture</h3>
+                  <p>Upload a new profile picture. JPG, GIF or PNG. Max size 1MB.</p>
+                  <div class="avatar-buttons">
+                    <button class="btn btn-primary">Upload New Photo</button>
+                    <button class="btn btn-outline">Remove</button>
+                  </div>
+                </div>
+              </div>
+              
+              <form class="profile-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="display-name">Display Name</label>
+                    <input type="text" id="display-name" value="Player123">
+                  </div>
+                  <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" value="John Doe">
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" value="john.doe@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="(Optional)">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="bio">Bio</label>
+                  <textarea id="bio" rows="4">Passionate gamer with over 10 years of competitive experience. Main games: Rocket League, Call of Duty, League of Legends.</textarea>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                      <option>United States</option>
+                      <option>Canada</option>
+                      <option>United Kingdom</option>
+                      <option>Australia</option>
+                      <option>Germany</option>
+                      <option>France</option>
+                      <option>Japan</option>
+                      <option>Brazil</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="timezone">Timezone</label>
+                    <select id="timezone">
+                      <option>Pacific Time (UTC-8)</option>
+                      <option>Mountain Time (UTC-7)</option>
+                      <option>Central Time (UTC-6)</option>
+                      <option>Eastern Time (UTC-5)</option>
+                      <option>Atlantic Time (UTC-4)</option>
+                      <option>GMT (UTC+0)</option>
+                      <option>Central European Time (UTC+1)</option>
+                      <option>Eastern European Time (UTC+2)</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="birthdate">Birth Date</label>
+                  <input type="date" id="birthdate" value="1990-01-15">
+                  <div class="form-hint">This will not be publicly displayed</div>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                  <button type="reset" class="btn btn-outline">Reset</button>
+                </div>
+              </form>
+            </section>
+            
+            <section id="account-settings" class="profile-section">
+              <h2 class="section-title">Account Settings</h2>
+              
+              <div class="section-block">
+                <h3 class="block-title">Change Password</h3>
+                <form class="profile-form">
+                  <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password">
+                  </div>
+                  
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="new-password">New Password</label>
+                      <input type="password" id="new-password">
+                    </div>
+                    <div class="form-group">
+                      <label for="confirm-password">Confirm New Password</label>
+                      <input type="password" id="confirm-password">
+                    </div>
+                  </div>
+                  
+                  <div class="form-hint password-requirements">
+                    <p>Password requirements:</p>
+                    <ul>
+                      <li>Minimum 8 characters</li>
+                      <li>At least one uppercase letter</li>
+                      <li>At least one number</li>
+                      <li>At least one special character</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update Password</button>
+                  </div>
+                </form>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Two-Factor Authentication</h3>
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <p>Enable two-factor authentication for an extra layer of security. We'll send a verification code to your email or phone each time you log in from a new device.</p>
+                    <div class="toggle-status">Status: <span class="status-enabled">Enabled</span></div>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <button class="btn btn-outline">Configure 2FA Settings</button>
+              </div>
+              
+              <div class="section-block danger-zone">
+                <h3 class="block-title">Danger Zone</h3>
+                <div class="danger-options">
+                  <div class="danger-option">
+                    <div class="danger-content">
+                      <h4>Deactivate Account</h4>
+                      <p>Temporarily disable your account. You can reactivate it at any time by logging in.</p>
+                    </div>
+                    <button class="btn btn-warning">Deactivate</button>
+                  </div>
+                  
+                  <div class="danger-option">
+                    <div class="danger-content">
+                      <h4>Delete Account</h4>
+                      <p>Permanently delete your account and all associated data. This action cannot be undone.</p>
+                    </div>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <section id="gaming-profiles" class="profile-section">
+              <h2 class="section-title">Gaming Profiles</h2>
+              
+              <div class="connected-accounts">
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-steam"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>Steam</h3>
+                    <p>Connected as <strong>PlayerX</strong></p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-outline">Disconnect</button>
+                  </div>
+                </div>
+                
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-playstation"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>PlayStation Network</h3>
+                    <p>Connected as <strong>Player_123</strong></p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-outline">Disconnect</button>
+                  </div>
+                </div>
+                
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-xbox"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>Xbox Live</h3>
+                    <p>Not connected</p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-primary">Connect</button>
+                  </div>
+                </div>
+                
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-battle-net"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>Battle.net</h3>
+                    <p>Not connected</p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-primary">Connect</button>
+                  </div>
+                </div>
+                
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-discord"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>Discord</h3>
+                    <p>Connected as <strong>Player#1234</strong></p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-outline">Disconnect</button>
+                  </div>
+                </div>
+                
+                <div class="connected-account">
+                  <div class="account-logo">
+                    <i class="fab fa-twitch"></i>
+                  </div>
+                  <div class="account-info">
+                    <h3>Twitch</h3>
+                    <p>Not connected</p>
+                  </div>
+                  <div class="account-actions">
+                    <button class="btn btn-sm btn-primary">Connect</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Game-specific Profiles</h3>
+                <p class="block-description">Connect your in-game accounts to track stats and achievements</p>
+                
+                <div class="game-profiles">
+                  <div class="game-profile">
+                    <div class="game-icon">
+                      <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="game-info">
+                      <h4>Rocket League</h4>
+                      <p>Connected via <strong>Steam</strong></p>
+                    </div>
+                    <div class="profile-status status-connected">
+                      <i class="fas fa-link"></i> Connected
+                    </div>
+                  </div>
+                  
+                  <div class="game-profile">
+                    <div class="game-icon">
+                      <i class="fas fa-ghost"></i>
+                    </div>
+                    <div class="game-info">
+                      <h4>Call of Duty: Warzone</h4>
+                      <p>Connected via <strong>PlayStation Network</strong></p>
+                    </div>
+                    <div class="profile-status status-connected">
+                      <i class="fas fa-link"></i> Connected
+                    </div>
+                  </div>
+                  
+                  <div class="game-profile">
+                    <div class="game-icon">
+                      <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="game-info">
+                      <h4>Apex Legends</h4>
+                      <p>Not connected</p>
+                    </div>
+                    <div class="profile-status status-disconnected">
+                      <i class="fas fa-unlink"></i> Not Connected
+                    </div>
+                  </div>
+                </div>
+                
+                <button class="btn btn-primary">Find More Games</button>
+              </div>
+            </section>
+            
+            <section id="achievements" class="profile-section">
+              <h2 class="section-title">Achievements</h2>
+              
+              <div class="section-block">
+                <h3 class="block-title">Recent Achievements</h3>
+                
+                <div class="achievements-grid">
+                  <div class="achievement-item">
+                    <div class="achievement-icon">
+                      <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-info">
+                      <h3>Demolition Expert</h3>
+                      <p>Rocket League</p>
+                      <div class="achievement-rarity">
+                        <div class="rarity-indicator rare"></div>
+                        Rare (12% of players)
+                      </div>
+                    </div>
+                    <div class="achievement-date">
+                      <i class="far fa-calendar-check"></i> Today
+                    </div>
+                  </div>
+                  
+                  <div class="achievement-item">
+                    <div class="achievement-icon">
+                      <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="achievement-info">
+                      <h3>Sharpshooter</h3>
+                      <p>Call of Duty: Warzone</p>
+                      <div class="achievement-rarity">
+                        <div class="rarity-indicator uncommon"></div>
+                        Uncommon (25% of players)
+                      </div>
+                    </div>
+                    <div class="achievement-date">
+                      <i class="far fa-calendar-check"></i> Yesterday
+                    </div>
+                  </div>
+                  
+                  <div class="achievement-item">
+                    <div class="achievement-icon">
+                      <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="achievement-info">
+                      <h3>Victory Royale</h3>
+                      <p>Fortnite</p>
+                      <div class="achievement-rarity">
+                        <div class="rarity-indicator legendary"></div>
+                        Legendary (5% of players)
+                      </div>
+                    </div>
+                    <div class="achievement-date">
+                      <i class="far fa-calendar-check"></i> 3 days ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Achievement Statistics</h3>
+                
+                <div class="achievement-stats">
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                      <h3>Total Achievements</h3>
+                      <p class="stat-value">45</p>
+                    </div>
+                  </div>
+                  
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="stat-content">
+                      <h3>Completion Rate</h3>
+                      <p class="stat-value">68%</p>
+                    </div>
+                  </div>
+                  
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                      <h3>Rare Achievements</h3>
+                      <p class="stat-value">12</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="achievement-insights">
+                  <h4>Achievement Insights</h4>
+                  <p>Based on your gaming patterns, you excel at achievements related to accuracy and strategy. Keep focusing on these areas to unlock more rare achievements!</p>
+                </div>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Achievement Sharing Settings</h3>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Auto-Share Achievements</h4>
+                    <p>Automatically share rare and legendary achievements to your connected social media accounts</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Notify Friends</h4>
+                    <p>Notify your friends when you unlock rare and legendary achievements</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="social-platforms">
+                  <h4>Connected Platforms for Sharing</h4>
+                  <div class="platform-toggles">
+                    <div class="platform-toggle">
+                      <i class="fab fa-twitter"></i>
+                      <label class="switch small">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="platform-toggle">
+                      <i class="fab fa-facebook-f"></i>
+                      <label class="switch small">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="platform-toggle">
+                      <i class="fab fa-discord"></i>
+                      <label class="switch small">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="platform-toggle">
+                      <i class="fab fa-reddit-alien"></i>
+                      <label class="switch small">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button class="btn btn-primary">Save Sharing Settings</button>
+                </div>
+              </div>
+            </section>
+            
+            <section id="privacy-settings" class="profile-section">
+              <h2 class="section-title">Privacy Settings</h2>
+              
+              <div class="section-block">
+                <h3 class="block-title">Profile Visibility</h3>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Public Profile</h4>
+                    <p>Allow anyone to view your profile and gaming stats</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Show Game Activity</h4>
+                    <p>Show others what games you're currently playing</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Show Online Status</h4>
+                    <p>Allow others to see when you're online</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Show Real Name</h4>
+                    <p>Show your real name instead of your username to friends</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Data Privacy</h3>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Analytics Collection</h4>
+                    <p>Allow us to collect anonymous data to improve your experience</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Personalized Recommendations</h4>
+                    <p>Receive game and friend recommendations based on your activity</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button class="btn btn-primary">Download My Data</button>
+                  <button class="btn btn-outline">Privacy Policy</button>
+                </div>
+              </div>
+            </section>
+            
+            <section id="notification-settings" class="profile-section">
+              <h2 class="section-title">Notification Settings</h2>
+              
+              <div class="section-block">
+                <h3 class="block-title">Email Notifications</h3>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Friend Requests</h4>
+                    <p>Receive email when someone sends you a friend request</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Game Invites</h4>
+                    <p>Receive email when friends invite you to play a game</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Tournament Notifications</h4>
+                    <p>Receive email about upcoming tournaments in your favorite games</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>System Announcements</h4>
+                    <p>Receive important system announcements and updates</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Marketing Emails</h4>
+                    <p>Receive offers, promotions, and news about new features</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="section-block">
+                <h3 class="block-title">Push Notifications</h3>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Friend Activity</h4>
+                    <p>Get notified when friends come online or start playing games</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Messages</h4>
+                    <p>Get notified when you receive new messages</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="toggle-section">
+                  <div class="toggle-content">
+                    <h4>Achievement Milestones</h4>
+                    <p>Get notified when friends reach achievement milestones</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button class="btn btn-primary">Save Notification Settings</button>
+                  <button class="btn btn-outline">Reset to Default</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+          </div>
+          <p class="copyright">© 2025 GameVault. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="profile.js"></script>
+    <script src="social-sharing.js"></script>
+  </body>
+</html>

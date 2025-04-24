@@ -1,0 +1,275 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: 100%;
+}
+
+.notification-popup {
+  position: relative;
+  background-color: #1e2030;
+  border-radius: 12px;
+  min-width: 300px;
+  max-width: 350px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.notification-popup.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification-popup.closing {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.notification-popup.info {
+  border-left-color: #3498db;
+}
+
+.notification-popup.success {
+  border-left-color: #00F260;
+}
+
+.notification-popup.error {
+  border-left-color: #E74C3C;
+}
+
+.notification-popup.warning {
+  border-left-color: #F39C12;
+}
+
+.notification-content {
+  padding: 15px;
+  position: relative;
+}
+
+.notification-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  cursor: pointer;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notification-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.notification-icon.info {
+  color: #3498db;
+}
+
+.notification-icon.success {
+  color: #00F260;
+}
+
+.notification-icon.error {
+  color: #E74C3C;
+}
+
+.notification-icon.warning {
+  color: #F39C12;
+}
+
+.notification-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #6C5CE7;
+}
+
+.notification-title {
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+}
+
+.notification-message {
+  color: #d1d1d1;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.notification-action {
+  background: none;
+  border: none;
+  color: #6C5CE7;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  background-color: rgba(108, 92, 231, 0.1);
+}
+
+.notification-action:hover {
+  background-color: rgba(108, 92, 231, 0.2);
+  transform: translateY(-2px);
+}
+
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6C5CE7, #00F260);
+  width: 100%;
+  transform-origin: left;
+  animation: progress linear forwards;
+}
+
+@keyframes progress {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+/* Add animation for popping in */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  70% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Special animation for game achievements */
+.notification-popup.achievement {
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.95), rgba(45, 50, 90, 0.95));
+  animation: achievementGlow 3s infinite alternate;
+  border-left: none;
+  border: 2px solid #F1C40F;
+}
+
+@keyframes achievementGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.8);
+  }
+}
+
+.notification-popup.achievement .notification-title {
+  color: #F1C40F;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.notification-popup.achievement .notification-message {
+  font-weight: 500;
+}
+
+/* Message notification */
+.notification-popup.message {
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.95), rgba(50, 55, 95, 0.95));
+  border-left: none;
+  border: 2px solid #6C5CE7;
+}
+
+.notification-popup.message .notification-action {
+  background: linear-gradient(135deg, #6C5CE7, #5a4dd4);
+  color: white;
+  padding: 8px 15px;
+}
+
+/* Friend request notification */
+.notification-popup.friend-request {
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.95), rgba(40, 80, 60, 0.95));
+  border-left: none;
+  border: 2px solid #00F260;
+}
+
+.notification-popup.friend-request .notification-title {
+  color: #00F260;
+}
+
+.notification-popup.friend-request .notification-action {
+  background: linear-gradient(135deg, #00F260, #0575E6);
+  color: white;
+  padding: 8px 15px;
+}
+
+/* Game event notification */
+.notification-popup.game-event {
+  background: linear-gradient(135deg, rgba(30, 32, 48, 0.95), rgba(80, 40, 80, 0.95));
+  border-left: none;
+  border: 2px solid #9B59B6;
+}
+
+.notification-popup.game-event .notification-title {
+  color: #9B59B6;
+}
+
+.notification-popup.game-event .notification-action {
+  background: linear-gradient(135deg, #9B59B6, #8E44AD);
+  color: white;
+  padding: 8px 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .notification-container {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    align-items: center;
+  }
+  
+  .notification-popup {
+    width: 100%;
+    max-width: 100%;
+  }
+}

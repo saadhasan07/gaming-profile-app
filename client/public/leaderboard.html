@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Gaming Profile App - Track your gaming stats and achievements"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="leaderboard.css" />
+    <link rel="stylesheet" href="modal.css" />
+    <title>Leaderboards | GameVault</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leaderboard.html" class="active">Leaderboards</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <button class="btn btn-outline">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="leaderboard-container">
+      <div class="container">
+        <div class="leaderboard-header">
+          <h1>Leaderboards</h1>
+          <div class="leaderboard-actions">
+            <div class="refresh-button">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </div>
+          </div>
+        </div>
+        
+        <div class="leaderboard-filters">
+          <div class="filter-item">
+            <label for="game-select">Game</label>
+            <select id="game-select" class="filter-select">
+              <option value="rocket-league">Rocket League</option>
+              <option value="call-of-duty">Call of Duty: Warzone</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="league-of-legends">League of Legends</option>
+              <option value="valorant">Valorant</option>
+              <option value="apex-legends">Apex Legends</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label for="platform-select">Platform</label>
+            <select id="platform-select" class="filter-select">
+              <option value="all">All Platforms</option>
+              <option value="pc">PC</option>
+              <option value="playstation">PlayStation</option>
+              <option value="xbox">Xbox</option>
+              <option value="switch">Nintendo Switch</option>
+              <option value="mobile">Mobile</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label for="stat-select">Statistic</label>
+            <select id="stat-select" class="filter-select">
+              <option value="wins">Wins</option>
+              <option value="kd">K/D Ratio</option>
+              <option value="score">Score</option>
+              <option value="playtime">Playtime</option>
+              <option value="kills">Kills</option>
+              <option value="accuracy">Accuracy</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label for="region-select">Region</label>
+            <select id="region-select" class="filter-select">
+              <option value="global">Global</option>
+              <option value="na">North America</option>
+              <option value="eu">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="sa">South America</option>
+              <option value="oce">Oceania</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="leaderboard-tabs">
+          <button class="tab-button active" data-tab="global">Global</button>
+          <button class="tab-button" data-tab="friends">Friends</button>
+          <button class="tab-button" data-tab="local">Regional</button>
+          <button class="tab-button" data-tab="seasonal">Seasonal</button>
+        </div>
+        
+        <div class="leaderboard-content">
+          <div class="top-players">
+            <div class="player-card second-place">
+              <div class="rank">2</div>
+              <div class="player-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="player-info">
+                <h3>LegendSlayer</h3>
+                <div class="player-stats">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 218 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 2.43 K/D
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="player-card first-place">
+              <div class="rank">1</div>
+              <div class="crown">
+                <i class="fas fa-crown"></i>
+              </div>
+              <div class="player-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="player-info">
+                <h3>ProSniper99</h3>
+                <div class="player-stats">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 347 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 3.15 K/D
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="player-card third-place">
+              <div class="rank">3</div>
+              <div class="player-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="player-info">
+                <h3>StealthNinja</h3>
+                <div class="player-stats">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 196 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 2.12 K/D
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="leaderboard-table">
+            <div class="table-header">
+              <div class="header-cell rank-cell">#</div>
+              <div class="header-cell player-cell">Player</div>
+              <div class="header-cell stats-cell">Stats</div>
+              <div class="header-cell platform-cell">Platform</div>
+              <div class="header-cell region-cell">Region</div>
+            </div>
+            
+            <div class="table-rows" id="leaderboard-rows">
+              <!-- Row 4 -->
+              <div class="table-row">
+                <div class="cell rank-cell">4</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">GhostWalker</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 175 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.97 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-windows"></i> PC
+                </div>
+                <div class="cell region-cell">NA</div>
+              </div>
+              
+              <!-- Row 5 -->
+              <div class="table-row">
+                <div class="cell rank-cell">5</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">ShadowHunter</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 168 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.91 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-playstation"></i> PS5
+                </div>
+                <div class="cell region-cell">EU</div>
+              </div>
+              
+              <!-- Row 6 -->
+              <div class="table-row highlighted">
+                <div class="cell rank-cell">6</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">Player123</div>
+                  <div class="player-badge">You</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 162 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.88 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-windows"></i> PC
+                </div>
+                <div class="cell region-cell">NA</div>
+              </div>
+              
+              <!-- Row 7 -->
+              <div class="table-row">
+                <div class="cell rank-cell">7</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">NightOwl</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 156 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.83 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-xbox"></i> Xbox
+                </div>
+                <div class="cell region-cell">EU</div>
+              </div>
+              
+              <!-- Row 8 -->
+              <div class="table-row">
+                <div class="cell rank-cell">8</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">DarkAssassin</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 143 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.75 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-playstation"></i> PS5
+                </div>
+                <div class="cell region-cell">ASIA</div>
+              </div>
+              
+              <!-- Row 9 -->
+              <div class="table-row">
+                <div class="cell rank-cell">9</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">VenomStrike</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 138 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.71 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-windows"></i> PC
+                </div>
+                <div class="cell region-cell">SA</div>
+              </div>
+              
+              <!-- Row 10 -->
+              <div class="table-row">
+                <div class="cell rank-cell">10</div>
+                <div class="cell player-cell">
+                  <div class="player-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="player-name">ToxicTitan</div>
+                </div>
+                <div class="cell stats-cell">
+                  <div class="stat-item">
+                    <i class="fas fa-trophy"></i> 129 Wins
+                  </div>
+                  <div class="stat-item">
+                    <i class="fas fa-crosshairs"></i> 1.68 K/D
+                  </div>
+                </div>
+                <div class="cell platform-cell">
+                  <i class="fab fa-xbox"></i> Xbox
+                </div>
+                <div class="cell region-cell">OCE</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pagination">
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <span>...</span>
+            <button class="pagination-button">10</button>
+            <button class="pagination-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="leaderboard-footnote">
+          <p>Leaderboard data is updated every 24 hours. Last updated: <span id="last-updated-date">April 24, 2025 08:15 AM</span></p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">
+            <i class="fas fa-gamepad"></i> GameVault
+          </div>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+          </div>
+          <p class="copyright">© 2025 GameVault. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Simple Modal Structure -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div id="modal-container" class="modal-container">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <div id="modal-content">
+          <!-- Login Form -->
+          <div id="login-form-container" class="form-container active">
+            <h2>Log In</h2>
+            <form id="login-form">
+              <div class="form-group">
+                <label for="login-email">Email or Username</label>
+                <input type="text" id="login-email" required>
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+              </div>
+              <div class="form-options">
+                <div class="remember-me">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+              </div>
+              <button type="submit" class="form-button">Login</button>
+              
+              <div class="form-divider">
+                <span>OR</span>
+              </div>
+              
+              <div class="social-buttons">
+                <button type="button" id="google-login" class="social-button google">
+                  <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button type="button" id="facebook-login" class="social-button facebook">
+                  <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+              </div>
+              
+              <div class="switch-form">
+                <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+              </div>
+            </form>
+          </div>
+          
+          <!-- Register Form -->
+          <div id="register-form-container" class="form-container">
+            <h2>Create Account</h2>
+            <form id="register-form">
+              <div class="form-group">
+                <label for="register-name">Full Name</label>
+                <input type="text" id="register-name" required>
+              </div>
+              <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" required>
+              </div>
+              <div class="form-group">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" required>
+              </div>
+              <div class="form-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" required>
+              </div>
+              <div class="form-group">
+                <label for="register-confirm">Confirm Password</label>
+                <input type="password" id="register-confirm" required>
+              </div>
+              <div class="terms">
+                <input type="checkbox" id="terms-check" required>
+                <label for="terms-check">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+              </div>
+              <button type="submit" class="form-button">Register</button>
+              
+              <div class="form-divider">
+                <span>OR</span>
+              </div>
+              
+              <div class="social-buttons">
+                <button type="button" id="google-register" class="social-button google">
+                  <i class="fab fa-google"></i> Sign up with Google
+                </button>
+                <button type="button" id="facebook-register" class="social-button facebook">
+                  <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                </button>
+              </div>
+              
+              <div class="switch-form">
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+              </div>
+            </form>
+          </div>
+          
+          <!-- Success Message -->
+          <div id="success-container" class="form-container">
+            <div class="success-content">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h2>Welcome aboard!</h2>
+              <p>You've successfully signed in with <span id="auth-method">Email</span></p>
+              <button id="continue-button" class="form-button">Continue to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="leaderboard.js"></script>
+  </body>
+</html>

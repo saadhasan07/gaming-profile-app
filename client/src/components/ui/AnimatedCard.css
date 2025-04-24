@@ -1,0 +1,278 @@
+.animated-card {
+  position: relative;
+  background-color: rgba(30, 32, 48, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) translateZ(0);
+  cursor: default;
+}
+
+.animated-card.hoverable {
+  cursor: pointer;
+}
+
+.animated-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(40, 42, 58, 0.7), rgba(20, 22, 38, 0.9));
+  z-index: -1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Card Variants */
+.animated-card.default {
+  background-color: rgba(30, 32, 48, 0.9);
+}
+
+.animated-card.elevated {
+  background-color: rgba(40, 42, 58, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.animated-card.glass {
+  background-color: rgba(30, 32, 48, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.animated-card.dark {
+  background-color: rgba(20, 22, 38, 0.95);
+}
+
+/* Glow Colors */
+.animated-card .card-glow.primary,
+.animated-card .card-border.primary {
+  border-color: #6C5CE7;
+}
+
+.animated-card .card-glow.secondary,
+.animated-card .card-border.secondary {
+  border-color: #00F260;
+}
+
+.animated-card .card-glow.danger,
+.animated-card .card-border.danger {
+  border-color: #E74C3C;
+}
+
+.animated-card .card-glow.warning,
+.animated-card .card-border.warning {
+  border-color: #F39C12;
+}
+
+.animated-card .card-glow.info,
+.animated-card .card-border.info {
+  border-color: #3498DB;
+}
+
+/* Hover Effects */
+.animated-card.hoverable:hover {
+  z-index: 10;
+}
+
+.animated-card.hover-scale:hover {
+  transform: perspective(1000px) translateZ(10px) scale(1.05);
+}
+
+.animated-card.has-glow:hover .card-glow.active.primary {
+  opacity: 1;
+  box-shadow: 0 0 20px 5px rgba(108, 92, 231, 0.5);
+}
+
+.animated-card.has-glow:hover .card-glow.active.secondary {
+  opacity: 1;
+  box-shadow: 0 0 20px 5px rgba(0, 242, 96, 0.5);
+}
+
+.animated-card.has-glow:hover .card-glow.active.danger {
+  opacity: 1;
+  box-shadow: 0 0 20px 5px rgba(231, 76, 60, 0.5);
+}
+
+.animated-card.has-glow:hover .card-glow.active.warning {
+  opacity: 1;
+  box-shadow: 0 0 20px 5px rgba(243, 156, 18, 0.5);
+}
+
+.animated-card.has-glow:hover .card-glow.active.info {
+  opacity: 1;
+  box-shadow: 0 0 20px 5px rgba(52, 152, 219, 0.5);
+}
+
+.animated-card:hover .card-border.active {
+  opacity: 1;
+}
+
+/* Animated Card with Shimmer Effect */
+.animated-card.shimmer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shimmer 4s infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-card.shimmer:hover::before {
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Special Card Animations */
+.animated-card.animated-border .card-border {
+  background: linear-gradient(90deg, 
+    rgba(108, 92, 231, 0), 
+    rgba(108, 92, 231, 1), 
+    rgba(0, 242, 96, 1), 
+    rgba(0, 242, 96, 0)
+  );
+  background-size: 400% 100%;
+  border: none;
+  height: 2px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  animation: none;
+  opacity: 0;
+}
+
+.animated-card.animated-border:hover .card-border {
+  opacity: 1;
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Enhanced 3D Effect */
+.animated-card.enhanced-3d {
+  transform-style: preserve-3d;
+}
+
+.animated-card.enhanced-3d .card-content {
+  transform: translateZ(20px);
+}
+
+.animated-card.enhanced-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.animated-card.enhanced-3d:hover::after {
+  opacity: 1;
+}
+
+/* Card Loading Animation */
+.animated-card.loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(40, 42, 58, 0.7),
+    rgba(50, 52, 68, 0.8),
+    rgba(40, 42, 58, 0.7)
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  z-index: 0;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animated-card {
+    transform: none !important;
+  }
+  
+  .animated-card.hover-scale:hover {
+    transform: scale(1.03) !important;
+  }
+}

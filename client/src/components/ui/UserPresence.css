@@ -1,0 +1,218 @@
+.user-presence {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.presence-indicator {
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Default size - medium */
+.presence-indicator {
+  width: 12px;
+  height: 12px;
+}
+
+/* Size variations */
+.user-presence.small .presence-indicator {
+  width: 8px;
+  height: 8px;
+}
+
+.user-presence.large .presence-indicator {
+  width: 16px;
+  height: 16px;
+}
+
+.user-presence.xl .presence-indicator {
+  width: 20px;
+  height: 20px;
+}
+
+/* Status colors */
+.presence-indicator.online {
+  background-color: #00F260;
+  box-shadow: 0 0 5px rgba(0, 242, 96, 0.5);
+}
+
+.presence-indicator.away {
+  background-color: #F39C12;
+  box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+}
+
+.presence-indicator.busy {
+  background-color: #E74C3C;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+.presence-indicator.offline {
+  background-color: #95a5a6;
+  box-shadow: none;
+}
+
+.presence-indicator.in-game {
+  background-color: #9B59B6;
+  box-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+}
+
+.presence-indicator.streaming {
+  background-color: #e91e63;
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+/* Pulse animation for online statuses */
+.presence-indicator.pulse {
+  animation: presencePulse 2s infinite;
+}
+
+@keyframes presencePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 242, 96, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(0, 242, 96, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 242, 96, 0);
+  }
+}
+
+.presence-indicator.away.pulse {
+  animation: awayPulse 2s infinite;
+}
+
+@keyframes awayPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(243, 156, 18, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(243, 156, 18, 0);
+  }
+}
+
+.presence-indicator.busy.pulse {
+  animation: busyPulse 2s infinite;
+}
+
+@keyframes busyPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(231, 76, 60, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+  }
+}
+
+.presence-indicator.in-game.pulse {
+  animation: inGamePulse 2s infinite;
+}
+
+@keyframes inGamePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(155, 89, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0);
+  }
+}
+
+.presence-indicator.streaming.pulse {
+  animation: streamingPulse 2s infinite;
+}
+
+@keyframes streamingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(233, 30, 99, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(233, 30, 99, 0);
+  }
+}
+
+/* Icon for special statuses */
+.presence-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  z-index: 2;
+}
+
+.user-presence.small .presence-icon {
+  font-size: 6px;
+}
+
+.user-presence.large .presence-icon {
+  font-size: 10px;
+}
+
+.user-presence.xl .presence-icon {
+  font-size: 12px;
+}
+
+/* Label styling */
+.presence-label {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.user-presence.small .presence-label {
+  font-size: 10px;
+}
+
+.user-presence.large .presence-label {
+  font-size: 14px;
+}
+
+/* Hover animation */
+.user-presence:hover .presence-indicator {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+/* Special offline ring effect */
+.presence-indicator.offline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #95a5a6;
+  opacity: 0.5;
+  animation: offlineRing 2s infinite;
+}
+
+@keyframes offlineRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
